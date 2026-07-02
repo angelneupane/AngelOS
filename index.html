@@ -16,12 +16,21 @@
                 border-radius: 15px; 
                 text-align: center;
             }
+        .header {
+            width: 100%;
+            height: 20px;
+            background: skyblue;
+            position: absolute;
+            left: 50%;             /* Moves the left edge to the middle */
+            transform: translateX(-50%); 
+            width: 80px; height: 8px;
+        }
         </style>
         <title>AngelOS</title>
     </head>
     <body background="background.png">
         <div class= "draggable window" id="intro" style="left: 80%;">
-            <div id= "introheader" style="width: 200px; height: 8px; background: skyblue; position: absolute;"></div>
+            <div class="header" id= "introheader"></div>
             <h1>AngelOS</h1>
             <p id="timeElement"></p>
             <script>
@@ -35,7 +44,8 @@
             </script>
         </div>
         <div class="draggable window" id="connect" style="left: 80%; top: 25%;">
-            <div id= "connectheader" style="width: 200px; height: 8px; background: skyblue; position: absolute;"></div>
+            <div class="header" id= "connectheader"></div>
+            <br>
             <p style="color: skyblue; font-weight: bold;">Connect with Angel</p>
             <a style="color: aliceblue; font-weight: bold; text-decoration: none;" href="https://www.linkedin.com/in/angel-neupane">Click here!</a>
         </div>
