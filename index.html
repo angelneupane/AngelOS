@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                color:aliceblue;
+                font-family: sans-serif
+            }
+        </style>
+        <title>
+            AngelOS
+        </title>
+    </head>
+    <body background="background.png"></body>        
+        <div background-color="blue" style="position: absolute; left: 76%; border: solid; border-width: 8px; width: 340px; padding: 10px; border-radius: 30px; text-align: center;">
+            <h1>AngelOS</h1>
+            <p><b><bold>The coolest web operating system ever.</bold></b></p>
+            <a style="color:aliceblue;" href="https://www.linkedin.com/in/angel-neupane">Connet with Angel</a>
+            <p id="timeElement"></p>
+             <script>
+                function updateTime() {
+                    var currentTime = new Date().toLocaleString();
+                    var timeText = document.querySelector("#timeElement");
+                    timeText.innerHTML = currentTime;
+                }
+                setInterval(updateTime, 1000);
+            </script>
+        </div>
+    </body>
+</html>
