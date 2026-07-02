@@ -7,6 +7,7 @@
                 font-family: sans-serif;
             }
             .window {
+                display: flex;
                 background: black; 
                 position: absolute; 
                 border: solid; 
@@ -14,38 +15,39 @@
                 width: 200px; 
                 padding: 10px; 
                 border-radius: 15px; 
-                text-align: center;
+                justify-content: center;
+                flex-wrap: wrap ;
             }
         .header {
-            width: 100%;
-            height: 20px;
+            width: 70%;
+            height: 10px;
             background: skyblue;
             position: absolute;
             left: 50%;             /* Moves the left edge to the middle */
             transform: translateX(-50%); 
-            width: 80px; height: 8px;
+        }
+        .closewindow {
+            width: 10px;
+            height: 10px;
+            background: red;
+            position: absolute;
+            right: 10px;
         }
         </style>
         <title>AngelOS</title>
     </head>
     <body background="background.png">
-        <div class= "draggable window" id="intro" style="left: 80%;">
-            <div class="header" id= "introheader"></div>
+        <p style="cursor: pointer; font-weight: bold;" id="welcomeopen" onClick="openWindow(document.getElementById('welcome'))">Welcome</p>
+        <p style="cursor: pointer; font-weight: bold;" id="connectopen" onClick="openWindow(document.getElementById('connect'))">Connect</p>
+        <div class= "draggable window" id="welcome" style="left: 80%;">
+            <div class="header" id= "welcomeheader"></div>
+            <div class="closewindow" onClick="closeWindow(document.getElementById('welcome'))"></div>
             <h1>AngelOS</h1>
-            <p id="timeElement"></p>
-            <script>
-                function updateTime() {
-                    var currentTime = new Date().toLocaleString();
-                    var timeText = document.querySelector("#timeElement");
-                    timeText.innerHTML = currentTime;
-                }
-                setInterval(updateTime, 1000);
-                updateTime();
-            </script>
+            <div id="timeElement"></div>
         </div>
-        <div class="draggable window" id="connect" style="left: 80%; top: 25%;">
+        <div class="draggable window" id="connect" style="left: 80%; top: 50%;">
             <div class="header" id= "connectheader"></div>
-            <br>
+            <div class="closewindow" onClick="closeWindow(document.getElementById('connect'))"></div>
             <p style="color: skyblue; font-weight: bold;">Connect with Angel</p>
             <a style="color: aliceblue; font-weight: bold; text-decoration: none;" href="https://www.linkedin.com/in/angel-neupane">Click here!</a>
         </div>
