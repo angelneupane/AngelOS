@@ -3,28 +3,42 @@
     <head>
         <style>
             body {
-                color:aliceblue;
-                font-family: sans-serif
+                color: aliceblue;
+                font-family: sans-serif;
+            }
+            .window {
+                background: black; 
+                position: absolute; 
+                border: solid; 
+                border-width: 5px; 
+                width: 200px; 
+                padding: 10px; 
+                border-radius: 15px; 
+                text-align: center;
             }
         </style>
-        <title>
-            AngelOS
-        </title>
+        <title>AngelOS</title>
     </head>
-    <body background="background.png"></body>        
-        <div background-color="blue" style="position: absolute; left: 76%; border: solid; border-width: 8px; width: 340px; padding: 10px; border-radius: 30px; text-align: center;">
+    <body background="background.png">
+        <div class= "draggable window" id="intro" style="left: 80%;">
+            <div id= "introheader" style="width: 200px; height: 8px; background: skyblue; position: absolute;"></div>
             <h1>AngelOS</h1>
-            <p><b><bold>The coolest web operating system ever.</bold></b></p>
-            <a style="color:aliceblue;" href="https://www.linkedin.com/in/angel-neupane">Connet with Angel</a>
             <p id="timeElement"></p>
-             <script>
+            <script>
                 function updateTime() {
                     var currentTime = new Date().toLocaleString();
                     var timeText = document.querySelector("#timeElement");
                     timeText.innerHTML = currentTime;
                 }
                 setInterval(updateTime, 1000);
+                updateTime();
             </script>
         </div>
+        <div class="draggable window" id="connect" style="left: 80%; top: 25%;">
+            <div id= "connectheader" style="width: 200px; height: 8px; background: skyblue; position: absolute;"></div>
+            <p style="color: skyblue; font-weight: bold;">Connect with Angel</p>
+            <a style="color: aliceblue; font-weight: bold; text-decoration: none;" href="https://www.linkedin.com/in/angel-neupane">Click here!</a>
+        </div>
+        <script src="script.js"></script>
     </body>
 </html>
