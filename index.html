@@ -38,7 +38,10 @@
     </head>
     <body background="background.png">
         <p style="cursor: pointer; font-weight: bold;" id="welcomeopen" onClick="openWindow(document.getElementById('welcome'))">Welcome</p>
-        <p style="cursor: pointer; font-weight: bold;" id="connectopen" onClick="openWindow(document.getElementById('connect'))">Connect</p>
+        <img src="linkedin.png" width="50px" height="50px" id="connectopen" onClick="openWindow(document.getElementById('connect'))" alt="Connect"></img>
+        <br><img src="note.png" width="50px" height="50px" id="todoopen" onClick="openWindow(document.getElementById('todo'))" alt="To Do List"></img>
+        <br><img src="cps.jpg" width="50px" height="50px" id="cpsopen" onClick="openWindow(document.getElementById('cps'))" alt="Coin Flip"></img>
+
         <div class= "draggable window" id="welcome" style="left: 80%;">
             <div class="header" id= "welcomeheader"></div>
             <div class="closewindow" onClick="closeWindow(document.getElementById('welcome'))"></div>
@@ -50,6 +53,39 @@
             <div class="closewindow" onClick="closeWindow(document.getElementById('connect'))"></div>
             <p style="color: skyblue; font-weight: bold;">Connect with Angel</p>
             <a style="color: aliceblue; font-weight: bold; text-decoration: none;" href="https://www.linkedin.com/in/angel-neupane">Click here!</a>
+        </div>
+        <div class="draggable window" id="todo" style="width: 720px;  height: 405px;">
+            <div class="header" id= "todoheader"></div>
+            <div class="closewindow" onClick="closeWindow(document.getElementById('todo'))"></div>
+            <div>
+                <h1 style="text-align: center;">To Do List</h1>
+                <textarea id="todoInput" placeholder="Enter your to do List..." style=" background: black; color: aliceblue; border: none; outline: none; font-size: 16px;"></textarea>
+            </div>
+        </div>
+        <div class= "draggable window" id="cps" style="width: 400px; height: 200px; left:50%; top:10%;">
+            <div class="header" id= "cpsheader"></div>
+            <div class="closewindow" onClick="closeWindow(document.getElementById('cps'))"></div>
+            <h1>Coin Flip!</h1>
+            <div position: absolute; onClick="headtails(1,2,3)" style="position: absolute; top: 40%; left: 10%; background: rgb(1, 77, 107); border: none; width: 140px; height: 90px; cursor: pointer; font-weight: bold; font-size: 40px; text-align: center; line-height: 90px;">Heads</div>
+            <div onClick="headtails(1,2,4)" style="position: absolute; top: 40%; right:10%; background: rgb(1, 77, 107); border: none; width: 140px; height: 90px; cursor: pointer; font-weight: bold; font-size: 40px; text-align: center; line-height: 90px;">Tails</div>
+            <div id="headtailresult" style="position: absolute; bottom: 5%; left: 50%; transform: translateX(-50%); font-weight: bold; font-size: 20px;">
+                <script>
+                    function headtails(heads, tails, result) {
+                        var pick = getRandomInt(1,2);
+                        if(pick == 1 && result == 3) {
+                            document.getElementById("headtailresult").innerHTML = "You Win!";
+                        } else if(pick == 2 && result == 4) {
+                            document.getElementById("headtailresult").innerHTML = "You Win!";
+                        } else if(pick == 1 && result == 4) {
+                            document.getElementById("headtailresult").innerHTML = "You Lose!";
+                        } else if(pick == 2 && result == 3) {
+                            document.getElementById("headtailresult").innerHTML = "You Lose!";
+                        }
+                    }
+                    function getRandomInt(min, max) {
+                        return Math.floor(Math.random() * (max - min + 1)) + min;
+                    }
+                </script></div>
         </div>
         <script src="script.js"></script>
     </body>
